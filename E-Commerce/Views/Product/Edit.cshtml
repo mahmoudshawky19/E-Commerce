@@ -1,0 +1,64 @@
+﻿@model Product
+<div class="row mb-3">
+    <h2><a href="/Product/Index"><i class="bi bi-arrow-left"></i></a> Edit Product</h2>
+</div>
+
+<div class="row">
+    <form action="/Product/Edit" enctype="multipart/form-data" method="post">
+        <div class="mb-3">
+
+                        <input type="hidden" class="form-control" id="ProductName" name="Id" value="@Model.Id">
+
+
+            <label for="ProductName" class="form-label">Product Name</label>
+            <input type="text" class="form-control" id="ProductName" name="Name" value="@Model.Name">
+            <span asp-validation-for="Name" class="text-bg-warning"></span>
+
+            <label for="ProductDescription" class="form-label">Product Description</label>
+            <input type="text" class="form-control" id="ProductDescription" name="Description"value="@Model.Description">
+            <span asp-validation-for="Description" class="text-bg-warning"></span>
+
+            <label for="ProductPrice" class="form-label">Product Price</label>
+            <input type="number" class="form-control" id="ProductPrice" name="Price"value="@Model.Price">
+            <span asp-validation-for="Price" class="text-bg-warning"></span>
+
+ <label for="ProductsImgUrl" class="form-label">Products ImgUrl</label>
+            <input type="file" class="form-control" id="ProductsImgUrl" name="ImgUrl" onchange="previewImage(event)" value="@Model.ImgUrl">
+            <span asp-validation-for="ImgUrl" class="text-bg-warning"></span>
+
+            <!-- Image preview -->
+            <img id="imagePreview" src="~/images/@Model.ImgUrl" alt="Image Preview" style="margin-top: 10px; max-width: 300px;">
+           </br>
+            
+            <label for="ProductCategoryId" class="form-label">Product Category</label>
+            
+            <select class="form-select" name="CategoryId">
+                 CategoryId=value 
+                @foreach (var item in ViewBag.c)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<script>
+    function previewImage(event) {
+        const file = event.target.files[0];
+        const preview = document.getElementById('imagePreview');
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            }
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = '';
+            preview.style.display = 'none';
+        }
+    }
+</script>

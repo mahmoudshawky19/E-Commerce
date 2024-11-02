@@ -1,0 +1,36 @@
+﻿@section Scripts {
+    @if (@TempData["Success"] != null)
+    {
+
+        <script>
+            toastr.success('@TempData["Success"]')
+
+        </script>
+    }
+}
+
+<div class="row">
+    @{
+        foreach (var item in Model)
+        {
+            <div class="col-4 mb-3 d-flex">
+                <div class="card" style="width: 18rem;">
+                    <a href="/Home/Details?ProductId=@item.Id"> <img src="~/images/@item.ImgUrl" class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-9">
+                                @item.Name
+                            </div>
+                            <div class="col-3">
+                                <span class="badge text-bg-success">@item.Rate / 5</span>
+                            </div>
+                        </div>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">Price: <span class="badge text-bg-warning">@item.Price</span></p>
+                        <a href="/Home/Details?ProductId=@item.Id" class="btn btn-primary">More Details...</a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>

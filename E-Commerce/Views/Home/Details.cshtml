@@ -1,0 +1,28 @@
+﻿﻿<div class="card mb-3 col-12">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="~/images/@Model.ImgUrl" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Name</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text">Price: <span class="badge text-bg-warning">@Model.Price</span></p>
+                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                <form action="/Cart/AddToCart">
+
+                    <input type="hidden" name="productId" value="@Model.Id" />
+
+                    <div class="row mb-3 d-flex justify-content-end">
+                        <div class="col-2">
+                            <input type="number" placeholder="Count..." class="form-control" name="count">
+                        </div>
+                        <div class="col-3">
+                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

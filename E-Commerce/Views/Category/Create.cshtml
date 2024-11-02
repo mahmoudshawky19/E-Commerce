@@ -1,0 +1,18 @@
+﻿@model Category
+<div class="row mb-3">
+    <h2><a href="/Category/Index"><i class="bi bi-arrow-left"></i></a> Create New Category</h2>
+</div>
+
+<div class="row">
+    <form action="/Category/Create" method="post" >
+        <div class="mb-3">
+            <label for="CategoryName" class="form-label">Category Name</label>
+            <input  class="form-control" asp-for="Name">
+            <span asp-validation-for="Name" class="text-bg-warning"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial.cshtml"></partial>
+}

@@ -1,0 +1,18 @@
+﻿ @model Category
+
+<div class="row mb-3">
+    <h2><a href="/Category/Index"><i class="bi bi-arrow-left"></i></a> Edit Category: @Model.Name</h2>
+</div>
+
+<div class="row">
+    <form action="/Category/Edit" method="post">
+        <input type="hidden" class="form-control" id="CategoryName" name="Id" value="@Model.Id">
+
+        <div class="mb-3">
+            <label for="CategoryName" class="form-label">Category Name</label>
+            <input type="text" class="form-control" id="CategoryName" name="Name" value="@Model.Name">
+            <span asp-validation-for="Name" class="text-warning"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,29 @@
+﻿ @model Company
+<div class="row mb-3">
+    <h2><a asp-action="Index" asp-controller="Company"><i class="bi bi-arrow-left"></i></a> Create New Company</h2>
+</div>
+
+<div class="row">
+    <form asp-action="Create" asp-controller="Company"  >
+        <div class="mb-3">
+            <label for="CategoryName" class="form-label">Company Name</label>
+            <input class="form-control" asp-for="Name">
+            <span asp-validation-for="Name" class="text-bg-warning"></span>
+        </div>        <div class="mb-3">
+            <label for="Description" class="form-label">Description</label>
+            <input class="form-control" asp-for="Description">
+            <span asp-validation-for="Description" class="text-bg-warning"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Address" class="form-label">Address</label>
+            <input class="form-control" asp-for="Address">
+            <span asp-validation-for="Address" class="text-bg-warning"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
